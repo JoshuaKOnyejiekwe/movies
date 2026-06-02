@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  genre: MyString
+  rating: 1
+  review: MyText
+  watched: false
+
+two:
+  title: MyString
+  genre: MyString
+  rating: 1
+  review: MyText
+  watched: false
