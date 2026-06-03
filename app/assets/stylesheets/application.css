@@ -8,3 +8,64 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Background */
+body {
+  background-color: #141414;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.web-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Button / The Add Movie Button */
+.movie-btn {
+  background-color: red;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+/* This is the hover effect for Button */
+.movie-btn:hover {
+  background-color: darkred;
+  color: white;
+}
+
+/* Movie cards */
+.movie-card {
+  background-color: #949494;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.movie-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.movie-genre {
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+/* Page container */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
