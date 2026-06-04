@@ -42,15 +42,26 @@ body {
 }
 
 /* Movie cards */
+
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+}
+
 .movie-card {
   background-color: #949494;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px;
   margin-bottom: 15px;
+  width: 280px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .movie-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
 }
 
 .movie-title {
@@ -59,8 +70,60 @@ body {
 }
 
 .movie-genre {
-  color: #aaaaaa;
+  color: #ffffff;
   font-size: 14px;
+}
+
+.watched-badge {
+  background-color: green;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.unwatched-badge {
+  background-color: orange;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.card-btn {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-btn a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 5px;
+  background-color: #333;
+  display: inline-block;
+}
+
+.card-btn a:hover {
+  background-color: #555555;
+}
+
+.search-box {
+  padding: 20px 30px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 2px solid #333;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 16px;
 }
 
 /* Page container */
@@ -68,4 +131,93 @@ body {
   max-width: 900px;
   margin: 30px auto;
   padding: 0 20px;
+}
+
+/*                                                                  Login Page CSS                                             */
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.auth-box {
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  background-color: #1f1f1f;
+}
+
+.auth-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  color: #aaaaaa;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-field {
+  margin-bottom: 20px;
+}
+
+.auth-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 2px solid #333;
+  background-color: #141414;
+  color: white;
+  font-size: 16px;
+}
+
+.auth-input:focus {
+  outline: none;
+  border: 2px solid red;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: red; /* The box around the sign  */
+  color: rgb(255, 255, 255); /* Sign in txt color*/
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.auth-btn:hover { /* Sign in btn */
+  background-color: darkred;
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+.auth-link a {
+  color: red;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
 }

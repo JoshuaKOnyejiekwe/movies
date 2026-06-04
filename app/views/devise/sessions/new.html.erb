@@ -1,0 +1,35 @@
+<div class="auth-wrapper">
+  <div class="auth-box">
+  <h2 class="auth-title">🎬 Welcome to My Watchlist 🎬</h2>
+    <p class="auth-subtitle">Sign in to your account</p>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="auth-field">
+        <%= f.label :email, "Email" %>
+        <%= f.email_field :email, class: "auth-input", placeholder: "Enter your email", autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="auth-field">
+        <%= f.label :password, "Password" %>
+        <%= f.password_field :password, class: "auth-input", placeholder: "Enter your password", autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="auth-field" style="display: flex; align-items: center; gap: 10px;">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "Remember me" %>
+        </div>
+      <% end %>
+
+      <div class="auth-field">
+        <%= f.submit "Sign In", class: "auth-btn" %>
+      </div>
+
+    <% end %>
+
+    <div class="auth-link">
+      <%= render "devise/shared/links" %>
+    </div>
+
+  </div>
+</div>

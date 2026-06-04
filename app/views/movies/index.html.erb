@@ -1,16 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Movies" %>
-
-<h1>Movies</h1>
-
-<div id="movies">
+<div class="movies-grid">
   <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
+    <div class="movie-card">
+      <div class="movie-title"><%= movie.title %></div>
+      <div class="movie-genre"><%= movie.genre %></div>
+      <div class="movie-rating">
+        <% movie.rating.to_i.times do %>⭐<% end %>
+      </div>
+
+
+      <% if movie.watched %>
+        <span class="watched-badge">Watched</span>
+
+      <% else %>
+        <span class="unwatched-badge">Unwatched</span>
+      <% end %>
+
+      <div class="card-btn">
+        <a href="/movies/<%= movie.id %>">View</a>
+        <a href="/movies/<%= movie.id %>/edit">Edit</a>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New movie", new_movie_path %>
+<div class="search-box">
+      <input type="text" class="search-input" id="movie-search" placeholder="Search movies...">
+</div>
+
+<a href="/movies/new" class="movie-btn" style="margin: 20px 30px; display: inline-block;">+ Add Movie</a>
