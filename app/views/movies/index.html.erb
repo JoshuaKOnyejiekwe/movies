@@ -1,32 +1,72 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green">
+  <%= notice %>
+</p>
 
-<div class="movies-grid">
-  <% @movies.each do |movie| %>
-    <div class="movie-card">
-      <div class="movie-title"><%= movie.title %></div>
-      <div class="movie-genre"><%= movie.genre %></div>
-      <div class="movie-rating">
-        <% movie.rating.to_i.times do %>⭐<% end %>
-      </div>
+<div class="hero">
+  <h1>My Movie Collection</h1>
 
-
-      <% if movie.watched %>
-        <span class="watched-badge">Watched</span>
-
-      <% else %>
-        <span class="unwatched-badge">Unwatched</span>
-      <% end %>
-
-      <div class="card-btn">
-        <a href="/movies/<%= movie.id %>">View</a>
-        <a href="/movies/<%= movie.id %>/edit">Edit</a>
-      </div>
-    </div>
-  <% end %>
+  <p>
+    Track movies you've watched and discover what to watch next.
+  </p>
 </div>
 
 <div class="search-box">
-      <input type="text" class="search-input" id="movie-search" placeholder="Search movies...">
+  <input
+    type="text"
+    class="search-input"
+    id="movie-search"
+    placeholder="Search movies..."
+  >
 </div>
 
-<a href="/movies/new" class="movie-btn" style="margin: 20px 30px; display: inline-block;">+ Add Movie</a>
+<div class="movies-grid">
+
+  <% @movies.each do |movie| %>
+
+    <div class="movie-card">
+
+      <div class="movie-title">
+        <%= movie.title %>
+      </div>
+
+      <div class="movie-genre">
+        <%= movie.genre %>
+      </div>
+
+      <div class="movie-rating">
+        <% movie.rating.to_i.times do %>
+          ⭐
+        <% end %>
+      </div>
+
+      <% if movie.watched %>
+
+        <span class="watched-badge">
+          Watched
+        </span>
+
+      <% else %>
+
+        <span class="unwatched-badge">
+          Unwatched
+        </span>
+
+      <% end %>
+
+      <div class="card-btn">
+
+        <a href="/movies/<%= movie.id %>">
+          View
+        </a>
+
+        <a href="/movies/<%= movie.id %>/edit">
+          Edit
+        </a>
+
+      </div>
+
+    </div>
+
+  <% end %>
+
+</div>
