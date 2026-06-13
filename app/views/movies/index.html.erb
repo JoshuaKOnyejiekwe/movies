@@ -40,29 +40,14 @@
       </div>
 
       <% if movie.watched %>
-
-        <span class="watched-badge">
-          Watched
-        </span>
-
+        <span class="watched-badge">Watched</span>
       <% else %>
-
-        <span class="unwatched-badge">
-          Unwatched
-        </span>
-
+        <span class="unwatched-badge">Unwatched</span>
       <% end %>
 
       <div class="card-btn">
-
-        <a href="/movies/<%= movie.id %>">
-          View
-        </a>
-
-        <a href="/movies/<%= movie.id %>/edit">
-          Edit
-        </a>
-
+        <a href="/movies/<%= movie.id %>">View</a>
+        <a href="/movies/<%= movie.id %>/edit">Edit</a>
       </div>
 
     </div>
