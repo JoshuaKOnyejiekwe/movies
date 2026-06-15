@@ -6,5 +6,6 @@ class AddingTmDbFieldsToMovies < ActiveRecord::Migration[8.1]
       t.string :release_date
       t.text :overview
       t.boolean :custom, default: true
+    end
   end
 end
