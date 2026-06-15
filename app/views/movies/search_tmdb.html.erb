@@ -1,0 +1,30 @@
+<p style="color: green;"><%= @test %></p>
+
+
+<h2 style="margin-bottom: 20px;">Search Results for "<%= params[:query] %>"</h2>
+
+<% if @results.nil? || @results.empty? %>
+  <p style="color: red;">No results found.</p>
+<% else %>
+  <div class="movies-grid">
+    <% @results.each do |movie| %>
+      <div class="movie-card">
+        <% if movie["poster_path"] %>
+          <img src="https://image.tmdb.org/t/p/w200<%= movie["poster_path"] %>" 
+               alt="<%= movie["title"] %>" 
+               style="width: 100%; border-radius: 8px; margin-bottom: 10px;">
+        <% end %>
+        <div class="movie-title"><%= movie["title"] %></div>
+        <div class="movie-genre"><%= movie["release_date"]&.split("-")&.first %></div>
+        <p style="color: #aaa; font-size: 13px; margin: 10px 0;"><%= movie["overview"]&.truncate(150) %></p>
+
+        <%= link_to "+ Add to Watchlist", new_movie_path(
+          title: movie["title"],
+          review: movie["overview"],
+          genre: movie["genre_ids"].first.to_s
+        ), class: "movie-btn" %>
+
+      </div>
+    <% end %>
+  </div>
+<% end %>
