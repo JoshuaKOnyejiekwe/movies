@@ -2,13 +2,12 @@
   <%= notice %>
 </p>
 
+
 <div class="Homepage-title-txt">
   <h1>My Movie Collection</h1>
-
-  <p>
-    Track movies you've watched and discover what to watch next.
-  </p>
+  <p>Track movies you've watched and discover what to watch next.</p>
 </div>
+
 
 <div class="search-box">
   <input
@@ -19,39 +18,35 @@
   >
 </div>
 
+
 <div class="movies-grid">
-
-  <% @movies.each do |movie| %>
-
+  <% @show_movies_tmdb_db.each do |movie| %>
     <div class="movie-card">
 
+      <% if movie["poster_path"] %>
+        <img src="https://image.tmdb.org/t/p/w200<%= movie["poster_path"] %>" 
+             alt="<%= movie["title"] %>" 
+             style="width: 100%; border-radius: 8px; margin-bottom: 10px;">
+      <% end %>
+
       <div class="movie-title">
-        <%= movie.title %>
+        <%= movie["title"] %>
       </div>
 
       <div class="movie-genre">
-        <%= movie.genre %>
+        <%= movie["release_date"]&.split("-")&.first %>
       </div>
 
       <div class="movie-rating">
-        <% movie.rating.to_i.times do %>
-          ⭐
-        <% end %>
+        ⭐ <%= movie["vote_average"].round(1) %>/10
       </div>
 
-      <% if movie.watched %>
-        <span class="watched-badge">Watched</span>
-      <% else %>
-        <span class="unwatched-badge">Unwatched</span>
-      <% end %>
-
-      <div class="card-btn">
-        <a href="/movies/<%= movie.id %>">View</a>
-        <a href="/movies/<%= movie.id %>/edit">Edit</a>
-      </div>
+      <%= link_to "+ Add to Watchlist", new_movie_path(
+        title: movie["title"],
+        review: movie["overview"],
+        genre: ""
+      ), class: "movie-btn" %>
 
     </div>
-
   <% end %>
-
 </div>

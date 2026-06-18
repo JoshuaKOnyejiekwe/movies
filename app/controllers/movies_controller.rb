@@ -3,7 +3,17 @@ class MoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
-    @movies = Movie.all
+    require "net/http"
+    require "json"
+
+    api_key = ENV["TMDB_API_KEY"]
+    uri = URI("https://api.themoviedb.org/3/movie/popular")
+    uri.query = URI.encode_www_form(api_key: api_key)
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    response = http.get(uri.request_uri)
+    @show_movies_tmdb_db = JSON.parse(response.body)["results"]  # fetches popular movies from TMDB
   end
 
   # GET /movies/1 or /movies/1.json
