@@ -6,7 +6,9 @@ class MoviesController < ApplicationController
     require "net/http"
     require "json"
 
-    api_key = ENV["TMDB_API_KEY"]
+    #api_key = ENV["TMDB_API_KEY"]
+    
+    api_key = Rails.application.credentials.tmdb_api_key
     uri = URI("https://api.themoviedb.org/3/movie/popular")
     uri.query = URI.encode_www_form(api_key: api_key)
 
@@ -78,7 +80,10 @@ def search_tmdb
   require "json"
 
   query = params[:query]
-  api_key = ENV["TMDB_API_KEY"]
+
+  #api_key = ENV["TMDB_API_KEY"]
+
+  api_key = Rails.application.credentials.tmdb_api_key
   uri = URI("https://api.themoviedb.org/3/search/movie")
   uri.query = URI.encode_www_form(api_key: api_key, query: query)
 

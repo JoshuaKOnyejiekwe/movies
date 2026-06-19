@@ -21,42 +21,26 @@
 
       <div class="nav-left">
         <a href="/" class="web-name">My Watchlist</a>
-      <a href="/movies/new" class="movie-btn">Add Movie</a>
+        <a href="/movies/new" class="movie-btn">Add Movie</a>
         <a href="/">Home</a>
-
-        <a href="/movies">Movies</a>
-      </div>
+        <a href="/movies">Movies</a></div>
 
       <div class="nav-right">
-
         <a href="/movies/new" class="movie-btn">+ Add Movie 2</a>
 
+
         <% if user_signed_in? %>
-
-          <span class="user-name">
-            <%= current_user.email %>
-          </span>
-
+          <span class="user-name"> <%= current_user.email %> </span>
           <%= button_to "Log Out",
               destroy_user_session_path,
               method: :delete,
               class: "logout-btn" %>
-
         <% else %>
-
-          <a href="/users/sign_in">
-            Log In
-          </a>
-
-          <a href="/users/sign_up">
-            Sign Up
-          </a>
-
+          <a href="/users/sign_in">Log In</a>
+          <a href="/users/sign_up">Sign Up</a>
         <% end %>
-
       </div>
     </nav>
-
     <div class="container">
       <%= yield %>
     </div>
